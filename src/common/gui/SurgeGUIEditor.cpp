@@ -28,6 +28,11 @@
 #include "vstlayer.h"
 #endif*/
 
+#if TARGET_VST3
+#include "pluginterfaces/vst/ivstcontextmenu.h"
+#include "pluginterfaces/base/ustring.h"
+#endif
+
 //#include <commctrl.h>
 const int window_size_x = 904, window_size_y = 542;
 const int yofs = 10;
@@ -1627,10 +1632,80 @@ int32_t SurgeGUIEditor::controlModifierClicked(CControl* control, CButtonState b
             }
          }
 
-         frame->addView(contextMenu); // add to frame
-         contextMenu->popup();
+         int command = -1;
 
-         int command = contextMenu->getLastResult();
+#ifdef TARGET_VST3
+         Steinberg::Vst::IComponentHandler* componentHandler =
+             getController()->getComponentHandler();
+         Steinberg::FUnknownPtr<Steinberg::Vst::IComponentHandler3> componentHandler3(
+             componentHandler);
+
+         if (componentHandler3)
+         {
+            Steinberg::Vst::ParamID param = ptag;
+            Steinberg::Vst::IContextMenu* hostMenu =
+                componentHandler3->createContextMenu(this, &param);
+
+            class PluginContextMenuTarget : public Steinberg::Vst::IContextMenuTarget,
+                                            public FObject
+            {
+            public:
+               PluginContextMenuTarget()
+               {}
+               virtual Steinberg::tresult PLUGIN_API executeMenuItem(Steinberg::int32 tag)
+               {
+                  // this will be called if the user has executed one of the menu items of the
+                  // Plug-in. It won't be called for items of the host.
+                  selectedTag = tag;
+
+                  return Steinberg::kResultTrue;
+               }
+               OBJ_METHODS(PluginContextMenuTarget, FObject)
+               DEFINE_INTERFACES
+               DEF_INTERFACE(IContextMenuTarget)
+               END_DEFINE_INTERFACES(FObject)
+               REFCOUNT_METHODS(FObject)
+
+               int selectedTag = -1;
+            };
+
+            PluginContextMenuTarget target;
+
+            int N = contextMenu->getNbEntries();
+
+            for (int i = 0; i < N; i++)
+            {
+               auto e = contextMenu->getEntry(i);
+
+               Steinberg::Vst::IContextMenu::Item item = {0};
+               Steinberg::UString128 name(e->getTitle());
+               name.copyTo(item.name, 128);
+               item.tag = e->getTag();
+
+               if (e->isChecked())
+               {
+                  item.flags |= Steinberg::Vst::IContextMenu::Item::kIsChecked;
+               }
+
+               hostMenu->addItem(item, &target);
+            }
+
+            CPoint loc;
+            frame->getCurrentMouseLocation(loc);
+            hostMenu->popup(loc.x, loc.y);
+            hostMenu->release();
+
+            command = target.selectedTag;
+         }
+         else
+#endif
+         {
+            frame->addView(contextMenu); // add to frame
+            contextMenu->popup();
+
+            command = contextMenu->getLastResult();
+         }
+
          if (command >= 0)
          {
             if (command == id_temposync)
@@ -1691,8 +1766,8 @@ int32_t SurgeGUIEditor::controlModifierClicked(CControl* control, CButtonState b
                   }
                }
             }
+            frame->removeView(contextMenu, true); // remove from frame and forget
          }
-         frame->removeView(contextMenu, true); // remove from frame and forget
          return 1;
       }
       else if (button & kControl)
