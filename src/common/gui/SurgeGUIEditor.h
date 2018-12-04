@@ -24,7 +24,7 @@ typedef PluginGUIEditor EditorType;
 #include "SurgeBitmaps.h"
 #include "PopupEditorSpawner.h"
 
-#include <vstcontrols.h>
+#include <vstgui/vstgui.h>
 #include "SurgeSynthesizer.h"
 
 #include <vector>

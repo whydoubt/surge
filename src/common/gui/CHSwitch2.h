@@ -2,7 +2,7 @@
 //	Copyright 2005 Claes Johanson & Vember Audio
 //-------------------------------------------------------------------------------------------------------
 #pragma once
-#include "vstcontrols.h"
+#include "vstgui/vstgui.h"
 
 class CHSwitch2 : public CHorizontalSwitch
 {

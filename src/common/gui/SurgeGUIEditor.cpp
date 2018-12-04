@@ -16,7 +16,7 @@
 #include "CSurgeVuMeter.h"
 #include "CEffectLabel.h"
 #include "CAboutBox.h"
-#include "vstcontrols.h"
+#include "vstgui/vstgui.h"
 #include "SurgeBitmaps.h"
 #include "CScalableBitmap.h"
 #include "CNumberField.h"

@@ -2,7 +2,7 @@
 //	Copyright 2017 Claes Johanson & Vember Audio
 //-------------------------------------------------------------------------------------------------------
 #pragma once
-#include "vstcontrols.h"
+#include "vstgui/vstgui.h"
 
 class CCursorHidingControl : public CControl
 {

@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "vstcontrols.h"
+#include "vstgui/vstgui.h"
 
 enum ctrl_mode
 {

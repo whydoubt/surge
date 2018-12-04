@@ -2,7 +2,7 @@
 //	Copyright 2005 Claes Johanson & vember|audio
 //-------------------------------------------------------------------------------------------------------
 #pragma once
-#include "shared/vstcontrols.h"
+#include "vstgui/vstgui.h"
 #include "SurgeStorage.h"
 #include "CDIBitmap.h"
 #include "DspUtilities.h"

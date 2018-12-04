@@ -2,7 +2,8 @@
 //	Copyright 2005 Claes Johanson & Vember Audio
 //-------------------------------------------------------------------------------------------------------
 #pragma once
-#include "vstcontrols.h"
+#include "vstgui/vstgui.h"
+#include "CCursorHidingControl.h"
 
 class CModulationSourceButton : public CCursorHidingControl
 {

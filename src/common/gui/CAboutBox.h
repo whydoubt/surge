@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "vstcontrols.h"
+#include "vstgui/vstgui.h"
 
 class CAboutBox : public CControl
 {
