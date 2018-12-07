@@ -264,7 +264,7 @@ function plugincommon()
 		
 		buildoptions {
 			"-Wno-unused-variable",
-			"`pkg-config gtkmm-3.0 --cflags`",
+			"`pkg-config --cflags freetype2 fontconfig xcb-cursor xcb-xkb xkbcommon-x11 cairo`",
 			"-std=c++14"
 		}
 
@@ -297,7 +297,7 @@ function plugincommon()
 		}
 
 		linkoptions {
-			"`pkg-config gtkmm-3.0 --libs`",
+			"`pkg-config --libs freetype2 fontconfig xcb-cursor xcb-xkb xkbcommon-x11 cairo`",
 		}
 	elseif (os.istarget("windows")) then
 
