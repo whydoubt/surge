@@ -54,7 +54,7 @@ void CSnapshotMenu::populate()
          {
             strcpy(txt, snapshot->Attribute("name"));
 
-            auto actionItem = new CCommandMenuItem(txt);
+            auto actionItem = new CCommandMenuItem(CCommandMenuItem::Desc(txt));
             auto action = [this, snapshot, type_id](CCommandMenuItem* item) {
                this->loadSnapshot(type_id, snapshot);
             };
@@ -75,7 +75,7 @@ void CSnapshotMenu::populate()
          }
          else
          {
-            auto actionItem = new CCommandMenuItem(txt);
+            auto actionItem = new CCommandMenuItem(CCommandMenuItem::Desc(txt));
             auto action = [this, type_id](CCommandMenuItem* item) {
                this->loadSnapshot(type_id, nullptr);
             };

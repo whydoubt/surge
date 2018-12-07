@@ -126,7 +126,7 @@ void CPatchBrowser::populatePatchMenuForCategory( int c, COptionMenu *contextMen
             // sprintf(name,"%i. %s",p,storage->patch_list[p].name.c_str());
             sprintf(name, "%s", storage->patch_list[p].name.c_str());
             
-            auto actionItem = new CCommandMenuItem(name);
+            auto actionItem = new CCommandMenuItem(CCommandMenuItem::Desc(name));
             auto action = [this, p](CCommandMenuItem* item) { this->loadPatch(p); };
             
             actionItem->setActions(action, nullptr);

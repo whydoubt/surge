@@ -295,7 +295,7 @@ CMouseEventResult COscillatorDisplay::onMouseDown(CPoint& where, const CButtonSt
                if (storage->wt_list[p].category == c)
                {
                   sprintf(name, "%s", storage->wt_list[p].name.c_str());
-                  auto actionItem = new CCommandMenuItem(name);
+                  auto actionItem = new CCommandMenuItem(CCommandMenuItem::Desc(name));
                   auto action = [this, p](CCommandMenuItem* item) { this->loadWavetable(p); };
 
                   actionItem->setActions(action, nullptr);

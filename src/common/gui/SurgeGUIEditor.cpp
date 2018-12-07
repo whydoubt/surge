@@ -1562,7 +1562,7 @@ int32_t SurgeGUIEditor::controlModifierClicked(CControl* control, CButtonState b
                  
                  char name[ 256 ];
                  sprintf( name, "CC # %d", mc );
-                 CCommandMenuItem *cmd = new CCommandMenuItem( name );
+                 CCommandMenuItem *cmd = new CCommandMenuItem( CCommandMenuItem::Desc( name ) );
                  cmd->setActions( [this,ccid,mc,&handled](CCommandMenuItem *men) {
                      handled = true;
                      synth->storage.controllers[ccid] = mc;
