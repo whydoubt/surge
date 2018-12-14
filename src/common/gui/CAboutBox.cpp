@@ -115,6 +115,10 @@ void CAboutBox::unSplash()
    value = 0.f;
 
    setViewSize(keepSize);
+#warning FIXME
+// Is this still needed?  If so, how can it be done without using
+// deprecated methods
+#if 0
    if (getFrame())
    {
       if (getFrame()->getModalView() == this)
@@ -122,4 +126,5 @@ void CAboutBox::unSplash()
          getFrame()->setModalView(NULL);
       }
    }
+#endif
 }
