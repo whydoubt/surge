@@ -83,9 +83,9 @@ void SurgeBitmaps::addEntry(int id)
    assert(bitmap_registry.find(id) == bitmap_registry.end());
 
 #ifdef USE_SCALABLE_BITMAPS
-   VSTGUI::CBitmap *bitmap = new CScalableBitmap(CResourceDescription(id));
+   VSTGUI::CBitmap *bitmap = new CScalableBitmap(VSTGUI::CResourceDescription(id));
 #else
-   VSTGUI::CBitmap* bitmap = new VSTGUI::CBitmap(CResourceDescription(id));
+   VSTGUI::CBitmap* bitmap = new VSTGUI::CBitmap(VSTGUI::CResourceDescription(id));
 #endif
    bitmap_registry[id] = bitmap;
 }
@@ -110,7 +110,7 @@ VSTGUI::CBitmap* getSurgeBitmap(int id, bool newInstance)
                                                "You requested a new Instance bitmap with for something other than the BG. Why?",
                                                "Software Error" );
       }
-      return new CScalableBitmap(CResourceDescription(id));
+      return new CScalableBitmap(VSTGUI::CResourceDescription(id));
 #else
       return bitmap_registry.at(id);
 #endif

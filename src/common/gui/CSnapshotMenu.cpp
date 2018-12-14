@@ -4,6 +4,8 @@
 #include "effect/Effect.h"
 #include "SurgeBitmaps.h"
 
+using namespace VSTGUI;
+
 extern CFontRef surge_minifont;
 
 // CSnapshotMenu

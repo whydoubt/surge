@@ -16,6 +16,8 @@
 
 namespace fs = std::experimental::filesystem;
 
+using namespace VSTGUI;
+
 const float disp_pitch = 90.15f - 48.f;
 const int wtbheight = 12;
 

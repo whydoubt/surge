@@ -5,6 +5,8 @@
 
 #include <vector>
 
+using namespace VSTGUI;
+
 extern CFontRef surge_minifont;
 extern CFontRef surge_patchfont;
 

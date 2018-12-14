@@ -3,6 +3,8 @@
 #include "resource.h"
 #include <stdio.h>
 
+using namespace VSTGUI;
+
 SharedPointer<CFontDesc> CAboutBox::infoFont;
 
 //------------------------------------------------------------------------

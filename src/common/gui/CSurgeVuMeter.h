@@ -13,11 +13,11 @@ enum vutypes
    n_vut,
 };
 
-class CSurgeVuMeter : public CControl
+class CSurgeVuMeter : public VSTGUI::CControl
 {
 public:
-   CSurgeVuMeter(const CRect& size);
-   virtual void draw(CDrawContext* dc);
+   CSurgeVuMeter(const VSTGUI::CRect& size);
+   virtual void draw(VSTGUI::CDrawContext* dc);
    void setType(int vutype);
    // void setSecondaryValue(float v);
    void setValueR(float f);

@@ -5,10 +5,10 @@
 #include "vstgui/vstgui.h"
 #include "SurgeStorage.h"
 
-class CPatchBrowser : public CControl
+class CPatchBrowser : public VSTGUI::CControl
 {
 public:
-   CPatchBrowser(const CRect& size, IControlListener* listener, long tag, SurgeStorage* storage)
+   CPatchBrowser(const VSTGUI::CRect& size, VSTGUI::IControlListener* listener, long tag, SurgeStorage* storage)
        : CControl(size, listener, tag, 0)
    {
       setLabel("Init");
@@ -52,8 +52,8 @@ public:
          author = "";
       setDirty(true);
    }
-   virtual void draw(CDrawContext* dc);
-   CMouseEventResult onMouseDown(CPoint& where, const CButtonState& button);
+   virtual void draw(VSTGUI::CDrawContext* dc);
+   VSTGUI::CMouseEventResult onMouseDown(VSTGUI::CPoint& where, const VSTGUI::CButtonState& button);
    void loadPatch(int id);
    int sel_id = 0;
 

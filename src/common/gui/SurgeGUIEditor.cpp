@@ -34,6 +34,9 @@
 #endif*/
 
 //#include <commctrl.h>
+
+using namespace VSTGUI;
+
 const int yofs = 10;
 
 #if MAC

@@ -6,13 +6,13 @@
 #include "SurgeStorage.h"
 #include "PopupEditorSpawner.h"
 
-class CSnapshotMenu : public COptionMenu
+class CSnapshotMenu : public VSTGUI::COptionMenu
 {
 public:
-   CSnapshotMenu(const CRect& size, IControlListener* listener, long tag, SurgeStorage* storage);
+   CSnapshotMenu(const VSTGUI::CRect& size, VSTGUI::IControlListener* listener, long tag, SurgeStorage* storage);
    virtual ~CSnapshotMenu();
-   virtual void draw(CDrawContext* dc);
-   // virtual CMouseEventResult onMouseDown(CPoint& where, const CButtonState& buttons);
+   virtual void draw(VSTGUI::CDrawContext* dc);
+   // virtual VSTGUI::CMouseEventResult onMouseDown(VSTGUI::CPoint& where, const VSTGUI::CButtonState& buttons);
    void populate();
    virtual void loadSnapshot(int type, TiXmlElement* e){};
    virtual void saveSnapshot(TiXmlElement* e, const char* name){};
@@ -26,12 +26,12 @@ protected:
 class COscMenu : public CSnapshotMenu
 {
 public:
-   COscMenu(const CRect& size,
-            IControlListener* listener,
+   COscMenu(const VSTGUI::CRect& size,
+            VSTGUI::IControlListener* listener,
             long tag,
             SurgeStorage* storage,
             OscillatorStorage* osc);
-   virtual void draw(CDrawContext* dc);
+   virtual void draw(VSTGUI::CDrawContext* dc);
    virtual void loadSnapshot(int type, TiXmlElement* e);
 
 protected:
@@ -43,14 +43,14 @@ protected:
 class CFxMenu : public CSnapshotMenu
 {
 public:
-   CFxMenu(const CRect& size,
-           IControlListener* listener,
+   CFxMenu(const VSTGUI::CRect& size,
+           VSTGUI::IControlListener* listener,
            long tag,
            SurgeStorage* storage,
            FxStorage* fx,
            FxStorage* fxbuffer,
            int slot);
-   virtual void draw(CDrawContext* dc);
+   virtual void draw(VSTGUI::CDrawContext* dc);
    virtual bool canSave()
    {
       return true;
