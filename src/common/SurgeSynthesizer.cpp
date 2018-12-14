@@ -1917,9 +1917,9 @@ void SurgeSynthesizer::getParameterMeta(long index, parametermeta& pm)
           storage.getPatch()
               .param_ptr[index]
               ->get_default_value_f01(); // storage.getPatch().param_ptr[index]->val_default.f;
-      pm.hide = (pm.flags & kHide) != 0;
-      pm.meta = (pm.flags & kMeta) != 0;
-      pm.expert = !(pm.flags & kEasy);
+      pm.hide = (pm.flags & CSurgeSlider::kHide) != 0;
+      pm.meta = (pm.flags & CSurgeSlider::kMeta) != 0;
+      pm.expert = !(pm.flags & CSurgeSlider::kEasy);
       pm.clump = 2;
       if (storage.getPatch().param_ptr[index]->scene)
       {

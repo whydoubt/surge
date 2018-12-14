@@ -281,12 +281,12 @@ CMouseEventResult COscillatorDisplay::onMouseDown(CPoint& where, const CButtonSt
       {
          CRect menurect(0, 0, 0, 0);
          menurect.offset(where.x, where.y);
-         COptionMenu* contextMenu = new COptionMenu(menurect, 0, 0, 0, 0, kNoDrawStyle);
+         COptionMenu* contextMenu = new COptionMenu(menurect, 0, 0, 0, 0, CParamDisplay::kNoDrawStyle);
 
          for (auto c : storage->wtCategoryOrdering)
          {
             char name[NAMECHARS];
-            COptionMenu* subMenu = new COptionMenu(getViewSize(), 0, c, 0, 0, kNoDrawStyle);
+            COptionMenu* subMenu = new COptionMenu(getViewSize(), 0, c, 0, 0, CParamDisplay::kNoDrawStyle);
             subMenu->setNbItemsPerColumn(32);
             int sub = 0;
             int p;

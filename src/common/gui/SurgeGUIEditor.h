@@ -14,10 +14,10 @@ typedef PluginGUIEditor EditorType;
 typedef Steinberg::Vst::VSTGUIEditor EditorType;
 #elif TARGET_VST2
 #include <vstgui/plugin-bindings/aeffguieditor.h>
-typedef AEffGUIEditor EditorType;
+typedef VSTGUI::AEffGUIEditor EditorType;
 #else
 #include <vstgui/plugin-bindings/plugguieditor.h>
-typedef PluginGUIEditor EditorType;
+typedef VSTGUI::PluginGUIEditor EditorType;
 #endif
 
 #include "SurgeStorage.h"

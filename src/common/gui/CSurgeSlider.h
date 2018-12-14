@@ -5,21 +5,23 @@
 #include "vstgui/vstgui.h"
 #include "CCursorHidingControl.h"
 
-enum CControlEnum_turbodeluxe
-{
-   kBipolar = 1 << 15,
-   kWhite = 1 << 16,
-   kSemitone = 1 << 17,
-   kMini = 1 << 18,
-   kMeta = 1 << 19,
-   kEasy = 1 << 20,
-   kHide = 1 << 21,
-   kNoPopup = 1 << 22,
-};
-
 class CSurgeSlider : public CCursorHidingControl
 {
 public:
+   enum Style
+   {
+      kHorizontal = 1 << 0,
+      kVertical   = 1 << 1,
+      kBipolar    = 1 << 2,
+      kWhite      = 1 << 3,
+      kSemitone   = 1 << 4,
+      kMini       = 1 << 5,
+      kMeta       = 1 << 6,
+      kEasy       = 1 << 7,
+      kHide       = 1 << 8,
+      kNoPopup    = 1 << 9,
+   };
+
    CSurgeSlider(const VSTGUI::CPoint& loc,
                 long style,
                 VSTGUI::IControlListener* listener = 0,

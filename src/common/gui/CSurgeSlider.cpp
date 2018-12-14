@@ -63,8 +63,8 @@ CSurgeSlider::CSurgeSlider(
    }
    else
    {
-      if (!(style & kTop))
-         style |= kBottom; // kBottom by default
+      if (!(style & CSlider::kTop))
+         style |= CSlider::kBottom; // kBottom by default
 
       pTray = getSurgeBitmap(IDB_FADERV_BG);
       pHandle = getSurgeBitmap(IDB_FADERV_HANDLE);
@@ -223,7 +223,7 @@ void CSurgeSlider::draw(CDrawContext* dc)
          hrect.offset(0, 3);
 
       float dispv = limit_range(qdvalue, 0.f, 1.f);
-      if (style & kRight || style & kBottom)
+      if (style & CSlider::kRight || style & CSlider::kBottom)
          dispv = 1 - dispv;
       dispv *= range;
 
@@ -259,7 +259,7 @@ void CSurgeSlider::draw(CDrawContext* dc)
       else
          dispv = limit_range(modval + value, 0.f, 1.f);
 
-      if (style & kRight || style & kBottom)
+      if (style & CSlider::kRight || style & CSlider::kBottom)
          dispv = 1 - dispv;
       dispv *= range;
 
@@ -391,7 +391,7 @@ void CSurgeSlider::onMouseMoveDelta(CPoint& where,
       else
          diff = dy;
 
-      if (style & kRight || style & kBottom)
+      if (style & CSlider::kRight || style & CSlider::kBottom)
          diff = -diff;
 
       *edit_value += diff / (float)range;

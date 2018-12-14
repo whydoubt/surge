@@ -48,7 +48,7 @@ void CSnapshotMenu::populate()
          int type_id = 0;
          type->Attribute("i", &type_id);
          sub = 0;
-         COptionMenu* subMenu = new COptionMenu(getViewSize(), 0, main, 0, 0, kNoDrawStyle);
+         COptionMenu* subMenu = new COptionMenu(getViewSize(), 0, main, 0, 0, CParamDisplay::kNoDrawStyle);
          TiXmlElement* snapshot = type->FirstChild("snapshot")->ToElement();
          while (snapshot)
          {
